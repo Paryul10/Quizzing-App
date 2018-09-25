@@ -10,7 +10,7 @@ class ViewQuizzes extends Component {
       submitted: false,
     }
     this.handleOptionChange = this.handleOptionChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // Lifecycle hook, runs after component has mounted onto the DOM structure
@@ -25,20 +25,20 @@ class ViewQuizzes extends Component {
     this.setState({ selectedOption: event.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    fetch('http://127.0.0.1:8080/viewquiz/' + this.state.selectedOption, {
-      method: 'GET',
-    })
+  // handleSubmit(event) {
+  //   event.preventDefault();
+  //   fetch('http://127.0.0.1:8080/viewquiz/' + this.state.selectedOption, {
+  //     method: 'GET',
+  //   })
 
-      .then(response => {
-        if (response.status >= 200 && response.status < 300){
-            this.setState({ submitted: true });
-        }
-        this.setState({ selectedOption: null });
+  //     .then(response => {
+  //       if (response.status >= 200 && response.status < 300){
+  //           this.setState({ submitted: true });
+  //       }
+  //       this.setState({ selectedOption: null });
 
-      });
-  }
+  //     });
+  // }
 
 
   render() {

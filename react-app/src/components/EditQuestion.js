@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './EditPerson.css';
 
-class EditPerson extends Component {
+class EditQuestion extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Edit a Person</h1>
+          <h1 className="App-title">Edit a Question</h1>
         </header>
       </div>
     );
   }
 }
 
-export default EditPerson;
+export default EditQuestion;

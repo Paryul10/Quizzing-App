@@ -26,7 +26,7 @@ class DeleteQuiz extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch('http://127.0.0.1:8080/people/' + this.state.selectedOption, {
+    fetch('http://127.0.0.1:8080/deletequiz/' + this.state.selectedOption, {
       method: 'DELETE',
     })
       .then(response => {
@@ -41,7 +41,7 @@ class DeleteQuiz extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Delete a Person</h1>
+          <h1 className="App-title">Delete a Quiz and Its Questions</h1>
         </header>
 
         <form onSubmit={this.handleSubmit}>
@@ -49,31 +49,29 @@ class DeleteQuiz extends Component {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>City</th>
-                <th>Delete</th>
+                <th>Genre Name</th>
+                <th>Quiz Number</th>
+                <th>Select A Quiz To Delete</th>
               </tr>
             </thead>
             <tbody>{this.state.data.map(function (item, key) {
               return (
                 <tr key={key}>
                   <td>{item.id}</td>
-                  <td>{item.firstname}</td>
-                  <td>{item.lastname}</td>
-                  <td>{item.city}</td>
+                  <td>{item.genrename}</td>
+                  <td>{item.quiznumber}</td>
                   <td><input type="radio" value={item.id} checked={this.state.selectedOption == item.id} onChange={this.handleOptionChange}></input></td>
                 </tr>
               )
             }, this)}
             </tbody>
           </table>
-          <input type="submit" value="Delete User" className="btn btn-default"></input>
+          <input type="submit" value="Delete Quiz" className="btn btn-default" ></input>
         </form>
 
         {this.state.submitted &&
           <div>
-            <h5>User deleted successfully</h5>
+            <h5>Quiz deleted successfully</h5>
           </div>
         }
       </div>
@@ -81,4 +79,4 @@ class DeleteQuiz extends Component {
   }
 }
 
-export default DeletePerson;
+export default DeleteQuiz;

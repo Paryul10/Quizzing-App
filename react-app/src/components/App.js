@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import DeletePerson from './DeletePerson';
 import ViewPeople from './ViewPeople';
-import EditPerson from './EditPerson';
+import EditQuestion from './EditQuestion';
 // import NewPerson from './NewPerson';
 import Home from './Home';
-import ViewQuizzes from './ViewQuizzes'
+import ViewQuizzes from './ViewQuizzes';
+import ViewQuiz from './ViewQuiz';
+import LeaderBoard from './LeaderBoard';
+import Admin from './Admin';
+
+import DeleteQuiz from './DeleteQuiz'
 
 // import Logout from './Logout';
 
@@ -15,6 +20,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      data : [],
       formData: {
         firstName: "",
         lastName: "",
@@ -50,6 +56,7 @@ class App extends Component {
       method: 'POST',
       body: JSON.stringify(this.state.formData),
     })
+    
       .then(response => {
         if (response.status >= 200 && response.status < 300) {
           sessionStorage.setItem("isLoggedIn", true)
@@ -60,7 +67,7 @@ class App extends Component {
 
 
   handleLogin(event) {
-    console.log("paryul")
+    //console.log("paryul")
     event.preventDefault();
     fetch('http://localhost:8080/login/', {
       method: 'POST',
@@ -69,7 +76,13 @@ class App extends Component {
       .then(response => {
         if (response.status >= 200 && response.status < 300) {
           sessionStorage.setItem("isLoggedIn", true)
+          //console.log(response.json.username)
+
+          //var x = sessionStorage.getItem("username")
+          sessionStorage.setItem("user",sessionStorage.getItem("username"))
+          //console.log(x)
           window.location.reload()
+
         }
       })
   }
@@ -99,6 +112,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(sessionStorage.getItem("user"))
     //const isLoggedIn = false;
     if (sessionStorage.getItem("isLoggedIn")) {
       return (
@@ -113,10 +127,15 @@ class App extends Component {
                   <ul className="nav navbar-nav">
                     <li><Link to={'/'}>Home</Link></li>
                     {/* <li><Link to={'/NewPerson'}>Create Person</Link></li> */}
-                    <li><Link to={'/EditPerson'}>Edit Person</Link></li>
-                    <li><Link to={'/DeletePerson'}>Delete Person</Link></li>
-                    <li><Link to={'/ViewPeople'}>View People</Link></li>
                     <li><Link to={'/ViewQuizzes'}>View Quizzes</Link></li>
+                    <li><Link to={'/ViewQuiz'}>View Quiz</Link></li>
+                    <li><Link to={'/LeaderBoard'}>Leader Board</Link></li>
+                    {/* <li><Link to={'/EditQuestion'}>Edit Question</Link></li> */}
+                    {/* <li><Link to={'/DeletePerson'}>Delete Person</Link></li> */}
+                    {/* <li><Link to={'/ViewPeople'}>View People</Link></li> */}
+                    {/* <li><Link to={'/DeleteQuiz'}>Delete Quiz</Link></li> */}
+                    <li><Link to={'/Admin'}>Admin</Link></li>
+
 
                     <li><Link to={'/'} onClick={this.handleLogout}>Logout</Link></li>
                   </ul>
@@ -125,10 +144,14 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Home} />
                 {/* <Route exact path='/NewPerson' component={NewPerson} /> */}
-                <Route exact path='/EditPerson' component={EditPerson} />
+                <Route exact path='/ViewQuizzes' component={ViewQuizzes} /> 
+                <Route exact path='/ViewQuiz' component={ViewQuiz} /> 
+                <Route exact path='/LeaderBoard' component={LeaderBoard} /> 
+                <Route exact path='/EditQuestion' component={EditQuestion} />
                 <Route exact path='/DeletePerson' component={DeletePerson} />
                 <Route exact path='/ViewPeople' component={ViewPeople} />
-                <Route exact path='/ViewQuizzes' component={ViewQuizzes} />                
+                <Route exact path='/DeleteQuiz' component={DeleteQuiz} />
+                <Route exact path='/Admin' component={Admin} />
                 {/* <Route exact path='/Logout' component={Logout} />  */}
               </Switch>
             </div>

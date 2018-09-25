@@ -52,6 +52,7 @@ class DeletePerson extends Component {
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>City</th>
+                <th>Username</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -62,6 +63,7 @@ class DeletePerson extends Component {
                   <td>{item.firstname}</td>
                   <td>{item.lastname}</td>
                   <td>{item.city}</td>
+                  <td>{item.username}</td>
                   <td><input type="radio" value={item.id} checked={this.state.selectedOption == item.id} onChange={this.handleOptionChange}></input></td>
                 </tr>
               )
