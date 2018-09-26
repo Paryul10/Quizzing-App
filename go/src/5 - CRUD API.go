@@ -70,6 +70,8 @@ type Genrepoints struct {
 }
 
 
+
+
 func main() {
    db, err = gorm.Open("sqlite3", "./gorm.db")
    if err != nil {
@@ -102,73 +104,73 @@ func main() {
 //    db.Create(&quiz6)
 //    var quiz7 = Quiz{Genrename:"Physics" , Quiznumber:2}
 //    db.Create(&quiz7)
-   var quiz8 = Quiz{Genrename:"SH" , Quiznumber:3}
-   db.Create(&quiz8)
+//    var quiz8 = Quiz{Genrename:"SH" , Quiznumber:3}
+//    db.Create(&quiz8)
 
-   var question1 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 0 ,Question : "What is the value of 'g'?(Values are in m/((sec)^2))",Option1 : "10" , Option2 : "20" ,Option3 : "9.8" , Option4 : "9" , Answer1 : false ,Answer2 : false , Answer3 : true , Answer4 : false}
-   db.Create(&question1)
-   var question2 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 1 ,Question : "Who among the following Discovered Radioactivity ?",Option1 : "Marie Curie" , Option2 : "Pierre Curie" ,Option3 : "Bequerl" , Option4 : "Bohr" , Answer1 : true ,Answer2 : true , Answer3 : true , Answer4 : false}
-   db.Create(&question2)
-   var question3 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 0 ,Question : "What is the Second Law Of Motion",Option1 : "V=u+at" , Option2 : "F=m*a" ,Option3 : "has not been discovered" , Option4 : "F=(G*m1*m2)/(r*r)" , Answer1 : false ,Answer2 : true , Answer3 : false , Answer4 : false}
-   db.Create(&question3)
-   var question4 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 0 ,Question : "The Shape of our Milky Way Galaxy is",Option1 : "circular" , Option2 : "elliptical" ,Option3 : "spiral" , Option4 : "none" , Answer1 : false ,Answer2 : false , Answer3 : true , Answer4 : false }
-   db.Create(&question4)
-   var question5 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 0 ,Question : "Who are scientists?",Option1 : "Einstien" , Option2 : "Newton" ,Option3 : "Classmate" , Option4 : "NOne" , Answer1 : true ,Answer2 : true , Answer3 : false , Answer4 : false}
-   db.Create(&question5)
+//    var question1 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 0 ,Question : "What is the value of 'g'?(Values are in m/((sec)^2))",Option1 : "10" , Option2 : "20" ,Option3 : "9.8" , Option4 : "9" , Answer1 : false ,Answer2 : false , Answer3 : true , Answer4 : false}
+//    db.Create(&question1)
+//    var question2 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 1 ,Question : "Who among the following Discovered Radioactivity ?",Option1 : "Marie Curie" , Option2 : "Pierre Curie" ,Option3 : "Bequerl" , Option4 : "Bohr" , Answer1 : true ,Answer2 : true , Answer3 : true , Answer4 : false}
+//    db.Create(&question2)
+//    var question3 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 0 ,Question : "What is the Second Law Of Motion",Option1 : "V=u+at" , Option2 : "F=m*a" ,Option3 : "has not been discovered" , Option4 : "F=(G*m1*m2)/(r*r)" , Answer1 : false ,Answer2 : true , Answer3 : false , Answer4 : false}
+//    db.Create(&question3)
+//    var question4 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 0 ,Question : "The Shape of our Milky Way Galaxy is",Option1 : "circular" , Option2 : "elliptical" ,Option3 : "spiral" , Option4 : "none" , Answer1 : false ,Answer2 : false , Answer3 : true , Answer4 : false }
+//    db.Create(&question4)
+//    var question5 = Question{Genrename: "Physics", Quiznumber : 1 , Type : 0 ,Question : "Who are scientists?",Option1 : "Einstien" , Option2 : "Newton" ,Option3 : "Classmate" , Option4 : "NOne" , Answer1 : true ,Answer2 : true , Answer3 : false , Answer4 : false}
+//    db.Create(&question5)
 
-   var question6 = Question{Genrename: "Physics", Quiznumber : 2 , Type : 1 ,Question : "Who are scientists ?",Option1 : "Einstien" , Option2 : "Newton" ,Option3 : "Bohr" , Option4 : "NOne" , Answer1 : true ,Answer2 : true , Answer3 : true , Answer4 : false}
-   db.Create(&question6)
-   var question7 = Question{Genrename: "Physics", Quiznumber : 2 , Type : 0 ,Question : "Who are scientists2?",Option1 : "Planck" , Option2 : "Bunny" ,Option3 : "Classmate" , Option4 : "one" , Answer1 : true ,Answer2 : false , Answer3 : false , Answer4 : false}
-   db.Create(&question7)
-   var question8 = Question{Genrename: "Physics", Quiznumber : 2 , Type : 0 ,Question : "Who are scientists3?",Option1 : "Hisenberg" , Option2 : "Newton Jr." ,Option3 : "Classmate" , Option4 : "None" , Answer1 : true ,Answer2 :false , Answer3 : false , Answer4 : false}
-   db.Create(&question8)
-   var question9 = Question{Genrename: "Physics", Quiznumber : 2 , Type : 1 ,Question : "Who are scientists4?",Option1 : "Max Born" , Option2 : "Newton 5" ,Option3 : "Classmates" , Option4 : "Young" , Answer1 : true ,Answer2 : false , Answer3 : false , Answer4 : true}
-   db.Create(&question9)
+//    var question6 = Question{Genrename: "Physics", Quiznumber : 2 , Type : 1 ,Question : "Who are scientists ?",Option1 : "Einstien" , Option2 : "Newton" ,Option3 : "Bohr" , Option4 : "NOne" , Answer1 : true ,Answer2 : true , Answer3 : true , Answer4 : false}
+//    db.Create(&question6)
+//    var question7 = Question{Genrename: "Physics", Quiznumber : 2 , Type : 0 ,Question : "Who are scientists2?",Option1 : "Planck" , Option2 : "Bunny" ,Option3 : "Classmate" , Option4 : "one" , Answer1 : true ,Answer2 : false , Answer3 : false , Answer4 : false}
+//    db.Create(&question7)
+//    var question8 = Question{Genrename: "Physics", Quiznumber : 2 , Type : 0 ,Question : "Who are scientists3?",Option1 : "Hisenberg" , Option2 : "Newton Jr." ,Option3 : "Classmate" , Option4 : "None" , Answer1 : true ,Answer2 :false , Answer3 : false , Answer4 : false}
+//    db.Create(&question8)
+//    var question9 = Question{Genrename: "Physics", Quiznumber : 2 , Type : 1 ,Question : "Who are scientists4?",Option1 : "Max Born" , Option2 : "Newton 5" ,Option3 : "Classmates" , Option4 : "Young" , Answer1 : true ,Answer2 : false , Answer3 : false , Answer4 : true}
+//    db.Create(&question9)
 
-   var question10 = Question{Genrename: "HP", Quiznumber : 1 , Type : 0 ,Question : "How many books does HP series have?",Option1 : "1" , Option2 : "10" ,Option3 : "7" , Option4 : "none" , Answer1 : false ,Answer2 : false , Answer3 : true , Answer4 : false }
-   db.Create(&question10)
-   var question11 = Question{Genrename: "HP", Quiznumber : 1 , Type : 0 ,Question : "How many movies HP series have?",Option1 : "8" , Option2 : "10" ,Option3 : "7" , Option4 : "none" , Answer1 : true ,Answer2 : false , Answer3 : false , Answer4 : false }
-   db.Create(&question11)
-   var question12 = Question{Genrename: "HP", Quiznumber : 1 , Type : 1 ,Question : "Harry's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : true }
-   db.Create(&question12)
-   var question13 = Question{Genrename: "HP", Quiznumber : 1 , Type : 1 ,Question : "Ron's Best Friends?",Option1 : "Malfoy" , Option2 : "Harry" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : false }
-   db.Create(&question13)
-   var question14 = Question{Genrename: "HP", Quiznumber : 1 , Type : 0 ,Question : "Voldermort's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : true ,Answer2 : false, Answer3 : false , Answer4 : false }
-   db.Create(&question14)
+//    var question10 = Question{Genrename: "HP", Quiznumber : 1 , Type : 0 ,Question : "How many books does HP series have?",Option1 : "1" , Option2 : "10" ,Option3 : "7" , Option4 : "none" , Answer1 : false ,Answer2 : false , Answer3 : true , Answer4 : false }
+//    db.Create(&question10)
+//    var question11 = Question{Genrename: "HP", Quiznumber : 1 , Type : 0 ,Question : "How many movies HP series have?",Option1 : "8" , Option2 : "10" ,Option3 : "7" , Option4 : "none" , Answer1 : true ,Answer2 : false , Answer3 : false , Answer4 : false }
+//    db.Create(&question11)
+//    var question12 = Question{Genrename: "HP", Quiznumber : 1 , Type : 1 ,Question : "Harry's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : true }
+//    db.Create(&question12)
+//    var question13 = Question{Genrename: "HP", Quiznumber : 1 , Type : 1 ,Question : "Ron's Best Friends?",Option1 : "Malfoy" , Option2 : "Harry" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : false }
+//    db.Create(&question13)
+//    var question14 = Question{Genrename: "HP", Quiznumber : 1 , Type : 0 ,Question : "Voldermort's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : true ,Answer2 : false, Answer3 : false , Answer4 : false }
+//    db.Create(&question14)
 
-   var question15 = Question{Genrename: "SH", Quiznumber : 1 , Type : 0 ,Question : "Sherlock's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Watson" , Option4 : "Sirius" , Answer1 : false ,Answer2 : false, Answer3 : true , Answer4 : false }
-   db.Create(&question15)
-   var question16 = Question{Genrename: "SH", Quiznumber : 1 , Type : 1 ,Question : "Sherlock's Enemy?",Option1 : "Sherlock's Sister" , Option2 : "Moriarity" ,Option3 : "Watson" , Option4 : "Voldermort" , Answer1 : true ,Answer2 : true, Answer3 : false , Answer4 : false }
-   db.Create(&question16)
-   var question17 = Question{Genrename: "SH", Quiznumber : 1 , Type : 0 ,Question : "Sherlock's Son?",Option1 : "None" , Option2 : "Moriarity" ,Option3 : "Watson" , Option4 : "Voldermort" , Answer1 : true ,Answer2 : false, Answer3 : false , Answer4 : false }
-   db.Create(&question17)
-   var question18 = Question{Genrename: "SH", Quiznumber : 1 , Type : 0 ,Question : "Sherlock's Landlord?",Option1 : "Mrs. Hudson" , Option2 : "Moriarity" ,Option3 : "Watson" , Option4 : "Voldermort" , Answer1 : true ,Answer2 : false, Answer3 : false , Answer4 : false }
-   db.Create(&question18)
-   var question19 = Question{Genrename: "SH", Quiznumber : 1 , Type : 0 ,Question : "Sherlock's Address?",Option1 : "221 B Down Town" , Option2 : "221 B China Town" ,Option3 : "221 B Baker Town" , Option4 : "221 B Baker Street" , Answer1 : false ,Answer2 : false, Answer3 : false , Answer4 : true }
-   db.Create(&question19)
+//    var question15 = Question{Genrename: "SH", Quiznumber : 1 , Type : 0 ,Question : "Sherlock's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Watson" , Option4 : "Sirius" , Answer1 : false ,Answer2 : false, Answer3 : true , Answer4 : false }
+//    db.Create(&question15)
+//    var question16 = Question{Genrename: "SH", Quiznumber : 1 , Type : 1 ,Question : "Sherlock's Enemy?",Option1 : "Sherlock's Sister" , Option2 : "Moriarity" ,Option3 : "Watson" , Option4 : "Voldermort" , Answer1 : true ,Answer2 : true, Answer3 : false , Answer4 : false }
+//    db.Create(&question16)
+//    var question17 = Question{Genrename: "SH", Quiznumber : 1 , Type : 0 ,Question : "Sherlock's Son?",Option1 : "None" , Option2 : "Moriarity" ,Option3 : "Watson" , Option4 : "Voldermort" , Answer1 : true ,Answer2 : false, Answer3 : false , Answer4 : false }
+//    db.Create(&question17)
+//    var question18 = Question{Genrename: "SH", Quiznumber : 1 , Type : 0 ,Question : "Sherlock's Landlord?",Option1 : "Mrs. Hudson" , Option2 : "Moriarity" ,Option3 : "Watson" , Option4 : "Voldermort" , Answer1 : true ,Answer2 : false, Answer3 : false , Answer4 : false }
+//    db.Create(&question18)
+//    var question19 = Question{Genrename: "SH", Quiznumber : 1 , Type : 0 ,Question : "Sherlock's Address?",Option1 : "221 B Down Town" , Option2 : "221 B China Town" ,Option3 : "221 B Baker Town" , Option4 : "221 B Baker Street" , Answer1 : false ,Answer2 : false, Answer3 : false , Answer4 : true }
+//    db.Create(&question19)
 
 
-   var question20 = Question{Genrename: "SH", Quiznumber : 2 , Type : 0 ,Question : "Sherlock's Address?",Option1 : "221 B Down Town" , Option2 : "221 B China Town" ,Option3 : "221 B Baker Town" , Option4 : "221 B Baker Street" , Answer1 : false ,Answer2 : false, Answer3 : false , Answer4 : true }
-   db.Create(&question20)
-   var question21 = Question{Genrename: "SH", Quiznumber : 2 , Type : 0 ,Question : "Sherlock's Address?",Option1 : "221 B Down Town" , Option2 : "221 B China Town" ,Option3 : "221 B Baker Town" , Option4 : "221 B Baker Street" , Answer1 : false ,Answer2 : false, Answer3 : false , Answer4 : true }
-   db.Create(&question21)
-   var question22 = Question{Genrename: "SH", Quiznumber : 2 , Type : 0 ,Question : "Sherlock's Address?",Option1 : "221 B Down Town" , Option2 : "221 B China Town" ,Option3 : "221 B Baker Town" , Option4 : "221 B Baker Street" , Answer1 : false ,Answer2 : false, Answer3 : false , Answer4 : true }
-   db.Create(&question22)
+//    var question20 = Question{Genrename: "SH", Quiznumber : 2 , Type : 0 ,Question : "Sherlock's Address?",Option1 : "221 B Down Town" , Option2 : "221 B China Town" ,Option3 : "221 B Baker Town" , Option4 : "221 B Baker Street" , Answer1 : false ,Answer2 : false, Answer3 : false , Answer4 : true }
+//    db.Create(&question20)
+//    var question21 = Question{Genrename: "SH", Quiznumber : 2 , Type : 0 ,Question : "Sherlock's Address?",Option1 : "221 B Down Town" , Option2 : "221 B China Town" ,Option3 : "221 B Baker Town" , Option4 : "221 B Baker Street" , Answer1 : false ,Answer2 : false, Answer3 : false , Answer4 : true }
+//    db.Create(&question21)
+//    var question22 = Question{Genrename: "SH", Quiznumber : 2 , Type : 0 ,Question : "Sherlock's Address?",Option1 : "221 B Down Town" , Option2 : "221 B China Town" ,Option3 : "221 B Baker Town" , Option4 : "221 B Baker Street" , Answer1 : false ,Answer2 : false, Answer3 : false , Answer4 : true }
+//    db.Create(&question22)
 
-   var question23 = Question{Genrename: "SH", Quiznumber : 3 , Type : 0 ,Question : "Sherlock's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Watson" , Option4 : "Sirius" , Answer1 : false ,Answer2 : false, Answer3 : true , Answer4 : false }
-   db.Create(&question23)
-   var question24 = Question{Genrename: "SH", Quiznumber : 3 , Type : 0 ,Question : "Sherlock's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Watson" , Option4 : "Sirius" , Answer1 : false ,Answer2 : false, Answer3 : true , Answer4 : false }
-   db.Create(&question24)
-   var question25 = Question{Genrename: "SH", Quiznumber : 3 , Type : 0 ,Question : "Sherlock's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Watson" , Option4 : "Sirius" , Answer1 : false ,Answer2 : false, Answer3 : true , Answer4 : false }
-   db.Create(&question25)
+//    var question23 = Question{Genrename: "SH", Quiznumber : 3 , Type : 0 ,Question : "Sherlock's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Watson" , Option4 : "Sirius" , Answer1 : false ,Answer2 : false, Answer3 : true , Answer4 : false }
+//    db.Create(&question23)
+//    var question24 = Question{Genrename: "SH", Quiznumber : 3 , Type : 0 ,Question : "Sherlock's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Watson" , Option4 : "Sirius" , Answer1 : false ,Answer2 : false, Answer3 : true , Answer4 : false }
+//    db.Create(&question24)
+//    var question25 = Question{Genrename: "SH", Quiznumber : 3 , Type : 0 ,Question : "Sherlock's Best Friends?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Watson" , Option4 : "Sirius" , Answer1 : false ,Answer2 : false, Answer3 : true , Answer4 : false }
+//    db.Create(&question25)
 
-   var question26 = Question{Genrename: "HP", Quiznumber : 2 , Type : 1 ,Question : "Harry's Best Friends2?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : true }
-   db.Create(&question26)
+//    var question26 = Question{Genrename: "HP", Quiznumber : 2 , Type : 1 ,Question : "Harry's Best Friends2?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : true }
+//    db.Create(&question26)
 
-   var question27 = Question{Genrename: "HP", Quiznumber : 3 , Type : 1 ,Question : "Harry's Best Friends3?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : true }
-   db.Create(&question27)
-   var question28 = Question{Genrename: "HP", Quiznumber : 3 , Type : 1 ,Question : "Harry's Best Friends3?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : true }
-   db.Create(&question28)
+//    var question27 = Question{Genrename: "HP", Quiznumber : 3 , Type : 1 ,Question : "Harry's Best Friends3?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : true }
+//    db.Create(&question27)
+//    var question28 = Question{Genrename: "HP", Quiznumber : 3 , Type : 1 ,Question : "Harry's Best Friends3?",Option1 : "Malfoy" , Option2 : "Ron" ,Option3 : "Hermione" , Option4 : "Sirius" , Answer1 : false ,Answer2 : true, Answer3 : true , Answer4 : true }
+//    db.Create(&question28)
    
 
    r := gin.Default()
@@ -178,6 +180,7 @@ func main() {
    r.POST("/createquestion/",CreateQuestion)
    r.GET("/viewquizzes/",ViewQuizzes)
    r.GET("/viewquiz/:id",ViewQuiz)
+   r.GET("/pastquizzes/:username" , PastQuizzes)
    r.POST("/evaluatequestion/:username/:id",EvaluateQuestion)
    r.GET("/leaderboard/",LeaderBoard)
    r.GET("/genreleaderboard/:genrename" , GenreLeaderBoard)
@@ -210,6 +213,7 @@ func SignUp(c *gin.Context) {
     pass_chk := helper.IsEmpty(person.Password)
 
     if firstname_chk || lastname_chk || username_chk || email_chk || pass_chk {
+        c.Header("access-control-allow-origin", "*")
         c.JSON(404, "Fill all fields!!!\n")
         fmt.Println("ErrorCode is -10 : There is empty data.")   //here you will have to return to front end if there is empty string
         return
@@ -219,6 +223,7 @@ func SignUp(c *gin.Context) {
     buff_email := person.Email
 
     if s1 := db.Where("username = ?", buff_uname).First(&person2).Error; s1 == nil{
+        c.Header("access-control-allow-origin", "*")
         c.JSON(404, "username exists!!\n")
         c.AbortWithStatus(404)
         fmt.Println("username exists!!")
@@ -226,6 +231,7 @@ func SignUp(c *gin.Context) {
         return
     }                                                                                           //what if there are multiple database, maybe it maps from where the person comes
     if s2 := db.Where("email = ?", buff_email).First(&person3).Error; s2 == nil{
+        c.Header("access-control-allow-origin", "*")
         c.JSON(404, "email exists!!")
         c.AbortWithStatus(404)
         fmt.Println("email exists!!")
@@ -256,6 +262,7 @@ func LogIn(c *gin.Context){
     pass_chk := helper.IsEmpty(person.Password)
 
     if username_chk || pass_chk {
+        c.Header("access-control-allow-origin", "*")
         c.AbortWithStatus(404)
         c.JSON(404, "Fill all fields!!!\n")
         fmt.Println("ErrorCode is -10 : There is empty data.")   //here you will have to return to front end if there is empty string
@@ -265,14 +272,16 @@ func LogIn(c *gin.Context){
     if s1 := db.Where("username = ?", person.Username).First(&person2).Error; s1 == nil{
         if person.Password == person2.Password{
             c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
-            c.JSON(200,  gin.H{"Welcom to Quizzer " + person.Username: "\n"})
+            c.JSON(200,person2)
             return        
         } else{
+            c.Header("access-control-allow-origin", "*")
             c.AbortWithStatus(404)
             c.JSON(404 , "PASSWORD IS WRONG!")
             fmt.Println("WRONG PASS")
         }    
     } else {
+        c.Header("access-control-allow-origin", "*")
         c.AbortWithStatus(404)
         c.JSON(404, "Username does not exist")
         fmt.Println(s1)
@@ -300,6 +309,7 @@ func CreateQuiz(c *gin.Context){
     genre_chk := helper.IsEmpty(quiz.Genrename)
     
     if genre_chk {
+        c.Header("access-control-allow-origin", "*")
         c.JSON(404,"Genre Name Empty")
         fmt.Println("Genre Name Empty")
         return 
@@ -308,6 +318,7 @@ func CreateQuiz(c *gin.Context){
     
 
     if err := db.Where("genrename = ?",quiz.Genrename).Where("quiznumber= ?",quiz.Quiznumber).First(&quiz2).Error; err == nil {
+        c.Header("access-control-allow-origin", "*")
         c.JSON(404,"This quiz number exists for this genre")
         fmt.Println("This quiz number exists for this genre")
         return
@@ -331,6 +342,7 @@ func CreateQuestion(c *gin.Context){
 
 
     if ques_chk || opt1_chk || opt2_chk || opt3_chk || opt4_chk {
+        c.Header("access-control-allow-origin", "*")
         c.JSON(404,"Empty Field Encountered")
         fmt.Println("Field  empty")
         return
@@ -345,6 +357,7 @@ func ViewQuizzes(c *gin.Context) {
     var quiz []Quiz
 
     if err := db.Find(&quiz).Error ; err != nil {
+        c.Header("access-control-allow-origin", "*")
         c.JSON(404,"NO DATA")
         fmt.Println(err)
     } else{
@@ -360,6 +373,7 @@ func ViewQuiz(c *gin.Context){
     var qnum uint
     var quiz Quiz
     if err := db.Where("id = ?", id).First(&quiz).Error; err != nil {
+        c.Header("access-control-allow-origin", "*")
         c.AbortWithError(404,err)
         fmt.Println(err)
      } else {
@@ -373,6 +387,7 @@ func ViewQuiz(c *gin.Context){
     var questions []Question
     //.Where("quiznumber = ?", qnum)
     if err := db.Where("genrename = ?" , genre).Where("quiznumber = ?", qnum).Find(&questions).Error ; err != nil {
+        c.Header("access-control-allow-origin", "*")
         c.JSON(404,"NO DATA")
         fmt.Println(err)
     } else{
@@ -393,6 +408,7 @@ func EvaluateQuestion(c *gin.Context){
     var person Person
 
     if err := db.Where("id = ?",id).First(&question).Error ; err != nil {
+        c.Header("access-control-allow-origin", "*")
         c.AbortWithError(404,err)
         return
     }
@@ -492,6 +508,7 @@ func GenreLeaderBoard(c *gin.Context) {
     var glb []Genrepoints
 
     if err := db.Find(&genrelb).Error ; err != nil {
+        c.Header("access-control-allow-origin", "*")
         c.AbortWithError(404,err)
         fmt.Println(err)
     } else {
@@ -521,6 +538,7 @@ func DeleteQuiz(c *gin.Context){
     var questions []Question
     if err := db.Where("genrename = ?",quiz.Genrename).Where("quiznumber = ?",quiz.Quiznumber).Find(&questions).Error; err != nil {
         fmt.Println(questions)
+        c.Header("access-control-allow-origin", "*")
         c.AbortWithStatus(404)
         fmt.Println("Not Found Any Question")
     } else {
@@ -531,6 +549,28 @@ func DeleteQuiz(c *gin.Context){
         fmt.Println("Deleted questions of corresponding quiz")
     }
 }
+
+func PastQuizzes(c *gin.Context){
+    user := c.Params.ByName("username")
+    // var genre string
+    // var qnum uint
+    var quiz []Quizpoints
+    if err := db.Where("username = ?", user).Find(&quiz).Error; err != nil {
+        c.Header("access-control-allow-origin", "*")
+        c.AbortWithError(404,err)
+        fmt.Println(err)
+        fmt.Println("No quizzes attempted")
+     } else {
+        c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+        c.JSON(200, quiz)
+        //genre = quiz.Genrename
+        //qnum = quiz.Quiznumber    
+        //fmt.Println(genre)
+        fmt.Println(quiz)
+        fmt.Println("All past quizzes returned")
+     }   
+}
+
 
 func DeleteQuestion(c *gin.Context){
     id := c.Params.ByName("id")
