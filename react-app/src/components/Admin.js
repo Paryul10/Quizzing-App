@@ -7,6 +7,7 @@ import Home from './Home';
 import ViewQuizzes from './ViewQuizzes';
 import ViewQuiz from './ViewQuiz';
 import LeaderBoard from './LeaderBoard';
+import CreateQuiz from './CreateQuiz'
 
 import DeleteQuiz from './DeleteQuiz'
 
@@ -64,6 +65,11 @@ class Admin extends Component {
                         <br></br>
                         <br></br>
                         <div align="center">
+                            <Link to={'/CreateQuiz'}> <button type="button">Create Quiz</button></Link>
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <div align="center">
                             <Link to={'/DeleteQuiz'}> <button type="button">Delete Quiz</button></Link>
                         </div>
 
@@ -78,6 +84,7 @@ class Admin extends Component {
                         <Route exact path='/EditQuestion' component={EditQuestion} />
                         <Route exact path='/DeletePerson' component={DeletePerson} />
                         <Route exact path='/ViewPeople' component={ViewPeople} />
+                        <Route exact path='/CreateQuiz' component={CreateQuiz} /> 
                         <Route exact path='/DeleteQuiz' component={DeleteQuiz} />
                         {/* <Route exact path='/Logout' component={Logout} />  */}
                     </Switch>

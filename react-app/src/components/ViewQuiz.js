@@ -6,21 +6,86 @@ class ViewQuiz extends Component {
     super();
     this.state = {       //javascript object
       //data: []
-      'items': []
+      // id: this.props.match.params.id,
+      items: [],
+      formData: {
+        answer1: false,
+        answer2: false,
+        answer3: false,
+        answer4: false,
+      },
+      selectedQuestion: null,
+      points: 0,
     }
+    this.handleAChange = this.handleAChange.bind(this)
+    this.handleBChange = this.handleBChange.bind(this)
+    this.handleCChange = this.handleCChange.bind(this)
+    this.handleDChange = this.handleDChange.bind(this)
+    this.submitQuestion = this.submitQuestion.bind(this)
+    this.submitQuiz = this.submitQuiz.bind(this)
   }
 
   // Lifecycle hook, runs after component has mounted onto the DOM structure
   componentDidMount() {
+    console.log(this.props.match.params.id)
+    sessionStorage.setItem("points", 0)
     this.getItems();
   }
 
   getItems() {
-    const request = new Request('http://127.0.0.1:8080/viewquiz/' + 9);
+    const request = new Request('http://127.0.0.1:8080/viewquiz/' + this.props.match.params.id);
     fetch(request)
       .then(response => response.json())
       .then(response => this.setState({ 'items': response }));
     // .then(data => this.setState({data: data}));
+  }
+
+  handleAChange(e) {
+    this.state.formData.answer1 = e.target.checked
+    this.state.selectedQuestion = e.target.value
+  }
+
+  handleBChange(e) {
+    this.state.formData.answer2 = e.target.checked
+    this.state.selectedQuestion = e.target.value
+  }
+
+  handleCChange(e) {
+    this.state.formData.answer3 = e.target.checked
+    this.state.selectedQuestion = e.target.value
+  }
+
+  handleDChange(e) {
+    this.state.formData.answer4 = e.target.checked
+    this.state.selectedQuestion = e.target.value
+  }
+
+  submitQuestion(event) {
+    console.log(this.state.formData)
+    event.preventDefault();
+    fetch('http://127.0.0.1:8080/evaluatequestion/' + sessionStorage.getItem("username") + '/' + this.state.selectedQuestion, {
+      method: 'POST',
+      body: JSON.stringify(this.state.formData),
+    })
+      .then(response => {
+        if (response.status == 200){
+          console.log("correct")
+          this.state.points += 5
+          sessionStorage.setItem("points", this.state.points)
+        }
+        else if (response.status == 201)
+          console.log("wrong")
+        this.state.selectedQuestion = null;
+        this.state.formData.answer1 = false;
+        this.state.formData.answer2 = false;
+        this.state.formData.answer3 = false;
+        this.state.formData.answer4 = false;
+        console.log(sessionStorage.getItem("points"))
+      });
+  }
+
+  submitQuiz() {
+    this.props.history.push('/Points')
   }
 
   render() {
@@ -37,37 +102,38 @@ class ViewQuiz extends Component {
 
                 <h3> {index + 1}.{item.question} </h3>
                 <div>
-                  <input type="radio" />
+                  <input type="checkbox" value={item.id} onChange={this.handleAChange} />
                   <label> A) {item.option1} </label>
                 </div>
 
                 <div>
-                  <input type="radio" />
+                  <input type="checkbox" value={item.id} onChange={this.handleBChange} />
                   <label> B) {item.option2} </label>
                 </div>
 
                 <div>
-                  <input type="radio" />
+                  <input type="checkbox" value={item.id} onChange={this.handleCChange} />
                   <label> C) {item.option3} </label>
                 </div>
 
                 <div>
-                  <input type="radio" />
+                  <input type="checkbox" value={item.id} onChange={this.handleDChange} />
                   <label> D) {item.option4} </label>
                 </div>
                 {/* if {item.type} {
                   <h6> There May be Multiple Correct Answers</h6>
                 } */}
                 <h6>{item.type}</h6>
-                <input type="submit" value="Submit Question" className="btn btn-default" ></input>
+                <input type="submit" value="Submit Question" className="btn btn-default" onClick={this.submitQuestion}></input>
               </div>
             )
-          }
+          }, this
           )}
           <div>
             <h6> 0 :-> Single Answer Question </h6>
             <h6> 1 :-> Multiple Answer Question </h6>
           </div>
+          <button type="button" onClick={this.submitQuiz} className="btn btn-default">Done</button>
 
         </ul>
 

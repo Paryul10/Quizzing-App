@@ -6,10 +6,14 @@ import EditQuestion from './EditQuestion';
 import Home from './Home';
 import ViewQuizzes from './ViewQuizzes';
 import ViewQuiz from './ViewQuiz';
+import PastQuizzes from './PastQuizzes';
+import GenrePoints from './GenrePoints';
+import GenreLeaderBoard from './GenreLeaderBoard'
 import LeaderBoard from './LeaderBoard';
 import Admin from './Admin';
-
+import CreateQuiz from './CreateQuiz'
 import DeleteQuiz from './DeleteQuiz'
+import Points from './Points';
 
 // import Logout from './Logout';
 
@@ -20,7 +24,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data : [],
+      data: [],
+      //status ,
       formData: {
         firstName: "",
         lastName: "",
@@ -56,13 +61,21 @@ class App extends Component {
       method: 'POST',
       body: JSON.stringify(this.state.formData),
     })
-    
-      .then(response => {
-        if (response.status >= 200 && response.status < 300) {
-          sessionStorage.setItem("isLoggedIn", true)
-          window.location.reload()
-        }
-      })
+      .then(response => response.json().then(data => ({ data: data, status: response.status }))
+        .then(r => {
+          if (r.status >= 200 && r.status < 300) {
+            sessionStorage.setItem("isLoggedIn", true)
+            sessionStorage.setItem("username", r.data.username)
+            sessionStorage.setItem("admin", r.data.admin)
+            window.location.reload()
+          }
+        }));
+    // .then(response => {
+    //   if (response.status >= 200 && response.status < 300) {
+    //     sessionStorage.setItem("isLoggedIn", true)
+    //     window.location.reload()
+    //   }
+    // })
   }
 
 
@@ -73,18 +86,23 @@ class App extends Component {
       method: 'POST',
       body: JSON.stringify(this.state.formData),
     })
-      .then(response => {
-        if (response.status >= 200 && response.status < 300) {
-          sessionStorage.setItem("isLoggedIn", true)
-          //console.log(response.json.username)
+      .then(response => response.json().then(data => ({ data: data, status: response.status }))
+        .then(r => {
+          if (r.status >= 200 && r.status < 300) {
+            sessionStorage.setItem("isLoggedIn", true)
+            sessionStorage.setItem("username", r.data.username)
+            sessionStorage.setItem("admin", r.data.admin)
+            window.location.reload()
+          }
+        })
+      );
+    // .then(response => {
+    //   if (response.status >= 200 && response.status < 300) {
+    //     sessionStorage.setItem("isLoggedIn", true)
+    //     window.location.reload()
+    //   }
+    // })
 
-          //var x = sessionStorage.getItem("username")
-          sessionStorage.setItem("user",sessionStorage.getItem("username"))
-          //console.log(x)
-          window.location.reload()
-
-        }
-      })
   }
 
   handleFnsuChange(event) {
@@ -114,6 +132,10 @@ class App extends Component {
   render() {
     console.log(sessionStorage.getItem("user"))
     //const isLoggedIn = false;
+    console.log(sessionStorage.getItem("username"), sessionStorage.getItem("admin"))
+    var admin
+    if (sessionStorage.getItem("admin") == 1) admin = true;
+    else admin = false;
     if (sessionStorage.getItem("isLoggedIn")) {
       return (
         <div>
@@ -128,13 +150,15 @@ class App extends Component {
                     <li><Link to={'/'}>Home</Link></li>
                     {/* <li><Link to={'/NewPerson'}>Create Person</Link></li> */}
                     <li><Link to={'/ViewQuizzes'}>View Quizzes</Link></li>
-                    <li><Link to={'/ViewQuiz'}>View Quiz</Link></li>
+                    {/* <li><Link to={'/ViewQuiz'}>View Quiz</Link></li> */}
                     <li><Link to={'/LeaderBoard'}>Leader Board</Link></li>
+                    <li><Link to={'/GenrePoints'}>Genre Leader Board</Link></li>
+                    <li><Link to={'/PastQuizzes'}>Past Quizzes</Link></li>
                     {/* <li><Link to={'/EditQuestion'}>Edit Question</Link></li> */}
                     {/* <li><Link to={'/DeletePerson'}>Delete Person</Link></li> */}
                     {/* <li><Link to={'/ViewPeople'}>View People</Link></li> */}
                     {/* <li><Link to={'/DeleteQuiz'}>Delete Quiz</Link></li> */}
-                    <li><Link to={'/Admin'}>Admin</Link></li>
+                    {admin && <li><Link to={'/Admin'}>Admin</Link></li>}
 
 
                     <li><Link to={'/'} onClick={this.handleLogout}>Logout</Link></li>
@@ -144,14 +168,19 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Home} />
                 {/* <Route exact path='/NewPerson' component={NewPerson} /> */}
-                <Route exact path='/ViewQuizzes' component={ViewQuizzes} /> 
-                <Route exact path='/ViewQuiz' component={ViewQuiz} /> 
-                <Route exact path='/LeaderBoard' component={LeaderBoard} /> 
-                <Route exact path='/EditQuestion' component={EditQuestion} />
-                <Route exact path='/DeletePerson' component={DeletePerson} />
-                <Route exact path='/ViewPeople' component={ViewPeople} />
-                <Route exact path='/DeleteQuiz' component={DeleteQuiz} />
-                <Route exact path='/Admin' component={Admin} />
+                <Route exact path='/ViewQuizzes' component={ViewQuizzes} />
+                <Route exact path='/ViewQuiz/:id' component={ViewQuiz} />
+                <Route exact path='/GenreLeaderBoard/:genrename' component={GenreLeaderBoard} />
+                <Route exact path='/PastQuizzes' component={PastQuizzes} />
+                <Route exact path='/LeaderBoard' component={LeaderBoard} />
+                <Route exact path='/GenrePoints' component={GenrePoints} />
+                <Route exact path='/Points' component={Points} />
+                {admin && <Route exact path='/CreateQuiz' component={CreateQuiz} />}
+                {admin && <Route exact path='/EditQuestion' component={EditQuestion} />}
+                {admin && <Route exact path='/DeletePerson' component={DeletePerson} />}
+                {admin && <Route exact path='/ViewPeople' component={ViewPeople} />}
+                {admin && <Route exact path='/DeleteQuiz' component={DeleteQuiz} />}
+                {admin && <Route exact path='/Admin' component={Admin} />}
                 {/* <Route exact path='/Logout' component={Logout} />  */}
               </Switch>
             </div>
